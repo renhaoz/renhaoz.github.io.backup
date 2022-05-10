@@ -57,7 +57,7 @@ if (!doNotTrack) {
 
 <div class="reading_time secondary_font text-muted ">
     <span>
-        May 10 2022 · 1 min read
+        May 10 2022 · 2 min read
     </span>
 
 </div>
@@ -106,7 +106,26 @@ Then, run <code>hugo version</code> to see if the installation is successful. If
 <p>See your blog locally by running <code>hugo serve</code>. The default path is <em>http://localhost:1313/</em>, you can open it in the browser. Then write the blog and modify other config files to see what has changed. After satisfying with your modification, deploy it to remote server so that others may see it.</p>
 <h1 id="deploy-to-github">Deploy to Github</h1>
 <p>Create a new repository named by <code>'your-github-name'.github.io</code></p>
-
+<p>Open config.toml and modify <code>baseURL = &quot;https://'your-github-name'.github.io&quot;</code> in line 1.</p>
+<p>Run <code>hugo</code> in myblog which will generate a <code>public</code> folder. Run the following command:</p>
+<pre><code>cd public
+git init
+git add .
+git commit -m &quot;myblog&quot;
+git remote add origin https://github.com/'your-github-name'/'your-github-name'.github.io.git
+git push -u origin +master
+</code></pre><p>Enter your user-name and password, then I got</p>
+<pre><code>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+</code></pre><p>To generate a personal access token, you have to go to github.com, login yout account, click settings -&gt; Developer settings -&gt; Personal access tokens -&gt; Generate new token, then run <code>git push -u origin +master</code> again, and fill in the new token instead of password when asking to fill in passward.</p>
+<p>Afterwards, if you make some update to your blogs, run the following commonds:</p>
+<pre><code>cd myblog
+hugo
+cd public
+git add .
+git status
+git commit -m &quot;update blogs&quot;
+git push
+</code></pre>
 
 <footer class="mt-auto d-flex justify-content-center text-muted small secondary_font">
     <span class="text-muted">Copyright (c) 2022, Renhao Zhang,
