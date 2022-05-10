@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on renhaoz</title>
+    <link>https://renhaoz.github.io/blog/</link>
+    <description>Recent content in Blogs on renhaoz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://renhaoz.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Build Personal Website with Hugo</title>
+      <link>https://renhaoz.github.io/blog/blog1/</link>
+      <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/blog1/</guid>
+      <description>This is a brief introduction about how to build a personal website with hugo! The following steps has worked on my Ubuntu20.04.
+ Table of Contents    Install Hugo Create Blog with Hugo  Choose a Theme   Deploy to Github     Install Hugo Open a terminal, and run sudo apt-get install hugo. Then, run hugo version to see if the installation is successful. If it&amp;rsquo;s successful, it should output the version of hugo, mine is</description>
+    </item>
+    
+  </channel>
+</rss>
