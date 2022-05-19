@@ -33,6 +33,18 @@ This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
     </item>
     
     <item>
+      <title>Right click in File Explorer of Win11</title>
+      <link>https://renhaoz.github.io/blog/blog4/</link>
+      <pubDate>Thu, 20 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/blog4/</guid>
+      <description>When right click on files in file explorer in Win11, it is simplified. To make it show as previous version, like Win10, I have to first right click, then select &amp;lsquo;show more options&amp;rsquo;. It&amp;rsquo;s too complicated.
+Run cmd as administrator: reg.exe add &amp;quot;HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32&amp;quot; /f /ve
+Then rerun the File Explorer.
+When wantting to change back to win11&amp;rsquo;s simplified mode, run cmd as administrator: reg.exe delete &amp;quot;HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32&amp;quot; /va /f</description>
+    </item>
+    
+    <item>
       <title>Hello World!</title>
       <link>https://renhaoz.github.io/blog/blog2/</link>
       <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
