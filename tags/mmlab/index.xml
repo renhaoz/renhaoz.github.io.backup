@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mmlab on renhaoz</title>
+    <link>https://renhaoz.github.io/tags/mmlab/</link>
+    <description>Recent content in mmlab on renhaoz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://renhaoz.github.io/tags/mmlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Install MMdetection with docker on WSL2</title>
+      <link>https://renhaoz.github.io/blog/blog3/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/blog3/</guid>
+      <description>Installation of some projects can be really hard in China due to the Internet problem, so this blog records how to install mmdetedtion with dockerfile on WSL2.
+This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
+ Table of Contents    1. Download MMdetection 2. Modification to Dockerfile 3. Basic Docker commond  3.0 Install docker 3.1 Status 3.2 Remove 3.3 Use       1.</description>
+    </item>
+    
+  </channel>
+</rss>

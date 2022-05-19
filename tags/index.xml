@@ -6,10 +6,37 @@
     <description>Recent content in Tags on renhaoz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renhaoz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cv</title>
+      <link>https://renhaoz.github.io/tags/cv/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/tags/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mmlab</title>
+      <link>https://renhaoz.github.io/tags/mmlab/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/tags/mmlab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wsl2</title>
+      <link>https://renhaoz.github.io/tags/wsl2/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/tags/wsl2/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>website</title>

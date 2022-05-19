@@ -6,10 +6,21 @@
     <description>Recent content in Blogs on renhaoz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renhaoz.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Install MMdetection with docker on WSL2</title>
+      <link>https://renhaoz.github.io/blog/blog3/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/blog3/</guid>
+      <description>Installation of some projects can be really hard in China due to the Internet problem, so this blog records how to install mmdetedtion with dockerfile on WSL2.
+This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
+ Table of Contents    1. Download MMdetection 2. Modification to Dockerfile 3. Basic Docker commond  3.0 Install docker 3.1 Status 3.2 Remove 3.3 Use       1.</description>
+    </item>
     
     <item>
       <title>Build Personal Website with Hugo</title>
@@ -19,6 +30,16 @@
       <guid>https://renhaoz.github.io/blog/blog1/</guid>
       <description>This is a brief introduction about how to build a personal website with hugo! The following steps has worked on my Ubuntu20.04.
  Table of Contents    Install Hugo Create Blog with Hugo  Choose a Theme   Deploy to Github     Install Hugo Open a terminal, and run sudo apt-get install hugo. Then, run hugo version to see if the installation is successful. If it&amp;rsquo;s successful, it should output the version of hugo, mine is</description>
+    </item>
+    
+    <item>
+      <title>Hello World!</title>
+      <link>https://renhaoz.github.io/blog/blog2/</link>
+      <pubDate>Mon, 10 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/blog2/</guid>
+      <description>Hello World!
+ Table of Contents      </description>
     </item>
     
   </channel>
