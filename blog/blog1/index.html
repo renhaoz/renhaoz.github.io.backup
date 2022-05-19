@@ -125,7 +125,10 @@ git add .
 git status
 git commit -m &quot;update blogs&quot;
 git push
-</code></pre><p>save</p>
+</code></pre><p>To make the process easier, run <code>gedit ~/.gitconfig</code>, then add the following at the end of the file:</p>
+<pre><code>[credential]  
+    helper = store 
+</code></pre><p>Then write the updating commonds into a <code>xxx.sh</code> file, every time finishing updating blogs, just run <code>bash xxx.sh</code>, then the blogs will bes updated.</p>
 
 
 <footer class="mt-auto d-flex justify-content-center text-muted small secondary_font">
