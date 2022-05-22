@@ -63,7 +63,7 @@ This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
       <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
       
       <guid>https://renhaoz.github.io/blog/transformer/</guid>
-      <description>Transformer &amp;ldquo;Attention is all you need&amp;rdquo; is a paper published on NIPS2017, conducted by 8 excellent machine learning scientists when they were in Google Brain. It proposed a network architecture, the Transformer, based solely on attention mechanisms, dispensing recurrence and convolutions entirely. It was originally used on translation tasks and achieved SOTA performance. However, it has been later applied in all different tasks in not only NLP but CV as well.</description>
+      <description>Table of Contents    1. Model Architecture  1.1 Encoder and Decoder 1.2 Attention 1.3 Position-wise Feed-Forward Networks 1.4 Embeddings and Softmax 1.5 Positional Encoding 1.6 Full Model   2. Training  2.1 Optimizer 2.2 Regularization   3. Other     &amp;ldquo;Attention is all you need&amp;rdquo; is a paper published on NIPS2017, conducted by 8 excellent machine learning scientists when they were in Google Brain.</description>
     </item>
     
     <item>

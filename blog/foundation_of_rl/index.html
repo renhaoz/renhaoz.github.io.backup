@@ -109,7 +109,7 @@ if (!doNotTrack) {
 <li>Discount factor, $\gamma$</li>
 <li>Horizon, $H$, especially when the MDP is infinite, $H \rightarrow \infty$</li>
 </ul>
-<p><img src="./images/MDP.png" alt=""></p>
+<p><img src="../images/MDP.png" alt=""></p>
 <p>At each epoch $t$, an agent would make action $a_t$ based on the state it observed $s_t$ with its policy $\pi$, where $a_t=\pi(s_t)$.</p>
 <p>Then the environment would change its state to $s_{t+1}$ and the agent would get its current reward $r_t$, according to the transition function $P(s'|s,a)$ and reward function $R(s,a,s&rsquo;)$ respectively.</p>
 <p>The goal of the agent is to learn a policy $\pi$ to maximize its expected discounted reward $\Bbb{E}<em>\pi[G_t]$, where $G_t=\sum</em>{k=0}^{H}\gamma^kr_{t+1+k}=r_{t+1}+\gamma G_{t+1}$. *</p>
