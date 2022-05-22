@@ -13,10 +13,10 @@
     
     <item>
       <title>Build Personal Website with Hugo</title>
-      <link>https://renhaoz.github.io/blog/blog1/</link>
+      <link>https://renhaoz.github.io/blog/hugo_blog/</link>
       <pubDate>Tue, 10 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://renhaoz.github.io/blog/blog1/</guid>
+      <guid>https://renhaoz.github.io/blog/hugo_blog/</guid>
       <description>This is a brief introduction about how to build a personal website with hugo! The following steps has worked on my Ubuntu20.04.
  Table of Contents    Install Hugo Create Blog with Hugo  Choose a Theme   Deploy to Github     Install Hugo Open a terminal, and run sudo apt-get install hugo. Then, run hugo version to see if the installation is successful. If it&amp;rsquo;s successful, it should output the version of hugo, mine is</description>
     </item>

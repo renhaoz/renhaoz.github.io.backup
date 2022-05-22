@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>attention on renhaoz</title>
+    <link>https://renhaoz.github.io/tags/attention/</link>
+    <description>Recent content in attention on renhaoz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Nov 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://renhaoz.github.io/tags/attention/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Transformer</title>
+      <link>https://renhaoz.github.io/blog/transformer/</link>
+      <pubDate>Tue, 30 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/transformer/</guid>
+      <description>Transformer &amp;ldquo;Attention is all you need&amp;rdquo; is a paper published on NIPS2017, conducted by 8 excellent machine learning scientists when they were in Google Brain. It proposed a network architecture, the Transformer, based solely on attention mechanisms, dispensing recurrence and convolutions entirely. It was originally used on translation tasks and achieved SOTA performance. However, it has been later applied in all different tasks in not only NLP but CV as well.</description>
+    </item>
+    
+  </channel>
+</rss>

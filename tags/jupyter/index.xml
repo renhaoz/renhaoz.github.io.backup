@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>jupyter on renhaoz</title>
+    <link>https://renhaoz.github.io/tags/jupyter/</link>
+    <description>Recent content in jupyter on renhaoz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://renhaoz.github.io/tags/jupyter/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Config of Jupyter Lab on WSL2</title>
+      <link>https://renhaoz.github.io/blog/jupyter_config/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/jupyter_config/</guid>
+      <description>Install JupyterLab Run conda install -c conda-forge jupyterlab
+Config Browser of WSL2 Find browser&amp;rsquo;s path, my Chrome&amp;rsquo;s path is /mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe.
+Create a quick link sudo ln -s /mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe /usr/bin/chrome.
+(Try if this work chrome www.youtube.com)
+Run gedit /.~bashrc, and add browser to its last line export BROWSER=&#39;/usr/bin/chrome&#39;
+Edit Jupyter Config File Generate jupyter config file jupyter notebook --generate-config
+Open it gedit ~/.jupyter/jupyter_notebook_config.py, find c.NotebookApp.use_redirect_file and set it to False.</description>
+    </item>
+    
+  </channel>
+</rss>

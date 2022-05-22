@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en-us"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Serif+JP&family=Cormorant+Garamond&family=Libre+Baskerville&family=Source+Serif+Pro&family=Crimson+Text&family=Inter&family=Crimson+Pro&family=Literata&family=Ubuntu+Mono&family=Inter&family=Roboto">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+    
+    
+
+    <title>renhaoz | Install MMdetection with docker on WSL2</title>
+
+
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA\/G-123123-12', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+</head><body class="container d-flex flex-column min-vh-100">
+
+<div class="blog_nav_bar secondary_font ">
+    
+    
+    <a class="navbar-brand" href="/">about</a>
+    
+    
+    
+    <a class="navbar-brand" href="/blog">« all posts</a>
+    
+    
+</div>
+
+
+
+<h3>
+    <a class="title" href="/blog/docker_mmdet/">Install MMdetection with docker on WSL2</a>
+</h3>
+
+<div class="reading_time secondary_font text-muted ">
+    <span>
+        May 19 2022 · 3 min read
+    </span>
+
+</div>
+
+
+
+
+<div class="tags_navigation">
+    
+    <a class="tag" href="/tags/wsl2/">#wsl2</a>
+    
+    <a class="tag" href="/tags/cv/">#cv</a>
+    
+    <a class="tag" href="/tags/mmlab/">#mmlab</a>
+    
+</div>
+
+
+<p>Installation of some projects can be really hard in China due to the Internet problem, so this blog records how to install mmdetedtion with dockerfile on WSL2.</p>
+<p>This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070</p>
+<div class="toc ">
+    <div>
+        <strong>Table of Contents</strong>
+    </div>
+    <div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-download-mmdetection">1. Download MMdetection</a></li>
+    <li><a href="#2-modification-to-dockerfile">2. Modification to Dockerfile</a></li>
+    <li><a href="#3-basic-docker-commond">3. Basic Docker commond</a>
+      <ul>
+        <li><a href="#30-install-docker">3.0 Install docker</a></li>
+        <li><a href="#31-status">3.1 Status</a></li>
+        <li><a href="#32-remove">3.2 Remove</a></li>
+        <li><a href="#33-use">3.3 Use</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+<h1 id="1-download-mmdetection">1. Download MMdetection</h1>
+<p>Download this <a href="https://github.com/open-mmlab/mmdetection">project</a> to your computer.</p>
+<p>Open WSL2, and run <code>cd /mnt/your-path</code>. (The window documents can be found in /mnt/ in wsl2)</p>
+<p>Then, open <code>/docker/Dockerfile</code> to change some commonds to make it work.</p>
+<h1 id="2-modification-to-dockerfile">2. Modification to Dockerfile</h1>
+<p>Firstly, line 1-9:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-docker" data-lang="docker"><span style="color:#66d9ef">ARG</span> PYTORCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.6.0&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> CUDA<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;10.1&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> CUDNN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;7&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> pytorch/pytorch:${PYTORCH}-cuda${CUDA}-cudnn${CUDNN}-devel</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> TORCH_CUDA_ARCH_LIST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;6.0 6.1 7.0+PTX&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> TORCH_NVCC_FLAGS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-Xfatbin -compress-all&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> CMAKE_PREFIX_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#66d9ef">$(</span>which conda<span style="color:#66d9ef">))</span><span style="color:#e6db74">/../&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>This version of cuda doesn&rsquo;t work on my NVIDIA-RTX-3070, so I changed it to</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-docker" data-lang="docker"><span style="color:#66d9ef">ARG</span> PYTORCH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;1.10.0&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> CUDA<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;11.3&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ARG</span> CUDNN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;8&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> pytorch/pytorch:${PYTORCH}-cuda${CUDA}-cudnn${CUDNN}-devel</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> TORCH_CUDA_ARCH_LIST<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;6.0 6.1 7.0 8.0 8.5+PTX&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> TORCH_NVCC_FLAGS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-Xfatbin -compress-all&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> CMAKE_PREFIX_PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>dirname <span style="color:#66d9ef">$(</span>which conda<span style="color:#66d9ef">))</span><span style="color:#e6db74">/../&#34;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Secondly, line 11-17:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-docker" data-lang="docker"><span style="color:#66d9ef">RUN</span> apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get install -y ffmpeg libsm6 libxext6 git ninja-build libglib2.0-0 libsm6 libxrender-dev libxext6 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> apt-get clean <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># Install MMCV</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install --no-cache-dir --upgrade pip wheel setuptools<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install --no-cache-dir mmcv-full<span style="color:#f92672">==</span>1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu101/torch1.6.0/index.html<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>When running these commonds, it&rsquo;ll be really slow in China, and may even encounter some errors. Therefore, it&rsquo;s necessary to change the mirror to aliyun or tsinghua.
+Then I have an error: <code>GPG error: https://developer.download.nvidia...</code>, adding two commonds can solve this problem.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-docker" data-lang="docker"><span style="color:#66d9ef">RUN</span> apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/7fa2af80.pub <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> sed -i s/archive.ubuntu.com/mirrors.aliyun.com/g /etc/apt/sources.list <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	<span style="color:#f92672">&amp;&amp;</span> sed -i s/security.ubuntu.com/mirrors.aliyun.com/g /etc/apt/sources.list <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	<span style="color:#f92672">&amp;&amp;</span> apt-get update <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>	<span style="color:#f92672">&amp;&amp;</span> apt-get install -y ffmpeg libsm6 libxext6 git ninja-build libglib2.0-0 libsm6 libxrender-dev libxext6 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> apt-get clean <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    <span style="color:#f92672">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install --no-cache-dir --upgrade pip wheel setuptools<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip install --no-cache-dir mmcv-full<span style="color:#f92672">==</span>1.3.17 -f https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Commond <code>sed -i s/old-str/new-str/g file</code> can change all the <code>old-str</code> to <code>new-str</code> in <code>file</code>.
+Besides, according to <a href="https://mmdetection.readthedocs.io/en/v2.21.0/get_started.html">Compatible MMDetection and MMCV versions</a>, the latest mmdetection version (2.21.0)&lsquo;s compatible mmcv version should be [1.13.17, 1.5.0).</p>
+<h1 id="3-basic-docker-commond">3. Basic Docker commond</h1>
+<h2 id="30-install-docker">3.0 Install docker</h2>
+<p>Run the following to install docker on wsl2:</p>
+<pre><code class="language-linux" data-lang="linux">curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+</code></pre><p>Wait for 20 sec, then it&rsquo;ll start installing. But when start container, I encoutered <code>Error response from daemon: could not select device driver &quot;&quot; with capabilities: [[gpu]]</code>, this is because running some code may need GPU, so I installed <code>nvidia-docker</code>.</p>
+<pre><code>curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu18.04/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list
+sudo apt-get update
+
+sudo apt-get install nvidia-docker2
+sudo pkill -SIGHUP dockerd
+sudo systemctl restart docker
+</code></pre><h2 id="31-status">3.1 Status</h2>
+<p>See images: <code>docker images</code></p>
+<p>See running containers: <code>docker ps</code>; See all the containers: <code>docker ps -a</code></p>
+<p>See the size of dockers: <code>docker system df</code></p>
+<h2 id="32-remove">3.2 Remove</h2>
+<p>Remove containers: <code>docker rm ID</code></p>
+<p>Remove images: <code>docker image rm ID</code></p>
+<h2 id="33-use">3.3 Use</h2>
+<p>Start docker: <code>service docker start</code></p>
+<p>Build image: <code>docker build -t name docker/</code></p>
+<p>Create container: <code>docker run --name xxx --gpus xxx --shm-size=xxx -it -v local:container image-name</code></p>
+<p>Start container: <code>docker start ID</code></p>
+<p>Execute container: <code>docker exec -it ID bash</code></p>
+<p>Stop container: <code>docker stop ID</code></p>
+
+
+<footer class="mt-auto d-flex justify-content-center text-muted small secondary_font">
+    <span class="text-muted">Copyright (c) 2022, Renhao Zhang,
+        <a class="text-muted" href="https://github.com/hadisinaee/avicenna" target="_blank"> created by Avicenna
+            (MIT)</a>
+    </span>
+</footer><script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+<script>
+    feather.replace()
+</script></body>
+
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rl on renhaoz</title>
+    <link>https://renhaoz.github.io/tags/rl/</link>
+    <description>Recent content in rl on renhaoz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Aug 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://renhaoz.github.io/tags/rl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Foundation of RL</title>
+      <link>https://renhaoz.github.io/blog/foundation_of_rl/</link>
+      <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/foundation_of_rl/</guid>
+      <description>Table of Contents    Foundation of RL    1. Markov Decision Process, MDP 2. Dynamic Process, DP 3. Monte Carlo Methods, MC 4. Temporal Difference, TD         Foundation of RL This blog will briefly introduce Markov decision process (MDP), dynamic process (DP), Monte Carlo methods (MC), temporal difference (TD).
+1. Markov Decision Process, MDP A MDP is defined by:</description>
+    </item>
+    
+  </channel>
+</rss>

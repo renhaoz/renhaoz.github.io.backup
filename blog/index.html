@@ -57,7 +57,95 @@ if (!doNotTrack) {
     
 
 <h3>
-    <a class="title" href="/blog/blog3/">Install MMdetection with docker on WSL2</a>
+    <a class="title" href="/blog/wsl2/">WSL2 on Win11</a>
+</h3>
+
+<div class="reading_time secondary_font text-muted ">
+    <span>
+        May 21 2022 · 3 min read
+    </span>
+
+</div>
+
+
+
+
+<div class="tags_navigation">
+    
+    <a class="tag" href="/tags/wsl2/">#wsl2</a>
+    
+</div>
+
+
+    <div>Since many insteresting projects&rsquo; environment only support Linux and many homeworks of computer science courses can only work on Linux, it is necessary for us to have one. But most laptop&rsquo;s OS is Windows, so the optional of having a Linux OS are follow: Dual System; Virtual Machine.
+Installing a dual system is complicated, and it&rsquo;s trouvlesome to frequently reboot when you want to use softwares installed on Windows and coding on Linus at same time.</div>
+
+
+
+<div class="read_more">
+    <a href="/blog/wsl2/">Read More…</a>
+</div>
+
+
+
+    
+</p>
+
+
+
+<p>
+    
+    
+
+<h3>
+    <a class="title" href="/blog/jupyter_config/">Config of Jupyter Lab on WSL2</a>
+</h3>
+
+<div class="reading_time secondary_font text-muted ">
+    <span>
+        May 21 2022 · 1 min read
+    </span>
+
+</div>
+
+
+
+
+<div class="tags_navigation">
+    
+    <a class="tag" href="/tags/jupyter/">#jupyter</a>
+    
+    <a class="tag" href="/tags/wsl2/">#wsl2</a>
+    
+</div>
+
+
+    <div>Install JupyterLab Run conda install -c conda-forge jupyterlab
+Config Browser of WSL2 Find browser&rsquo;s path, my Chrome&rsquo;s path is /mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe.
+Create a quick link sudo ln -s /mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe /usr/bin/chrome.
+(Try if this work chrome www.youtube.com)
+Run gedit /.~bashrc, and add browser to its last line export BROWSER='/usr/bin/chrome'
+Edit Jupyter Config File Generate jupyter config file jupyter …</div>
+
+
+
+<div class="read_more">
+    <a href="/blog/jupyter_config/">Read More…</a>
+</div>
+
+
+
+    
+</p>
+
+
+
+<p>
+    
+    
+
+<h3>
+    <a class="title" href="/blog/docker_mmdet/">Install MMdetection with docker on WSL2</a>
 </h3>
 
 <div class="reading_time secondary_font text-muted ">
@@ -88,7 +176,7 @@ This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
 
 
 <div class="read_more">
-    <a href="/blog/blog3/">Read More…</a>
+    <a href="/blog/docker_mmdet/">Read More…</a>
 </div>
 
 
@@ -103,7 +191,7 @@ This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
     
 
 <h3>
-    <a class="title" href="/blog/blog1/">Build Personal Website with Hugo</a>
+    <a class="title" href="/blog/hugo_blog/">Build Personal Website with Hugo</a>
 </h3>
 
 <div class="reading_time secondary_font text-muted ">
@@ -129,7 +217,7 @@ This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
 
 
 <div class="read_more">
-    <a href="/blog/blog1/">Read More…</a>
+    <a href="/blog/hugo_blog/">Read More…</a>
 </div>
 
 
@@ -144,7 +232,125 @@ This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
     
 
 <h3>
-    <a class="title" href="/blog/blog4/">Right click in File Explorer of Win11</a>
+    <a class="title" href="/blog/transformer/">Transformer</a>
+</h3>
+
+<div class="reading_time secondary_font text-muted ">
+    <span>
+        Nov 30 2021 · 10 min read
+    </span>
+
+</div>
+
+
+
+
+<div class="tags_navigation">
+    
+    <a class="tag" href="/tags/nlp/">#nlp</a>
+    
+    <a class="tag" href="/tags/attention/">#attention</a>
+    
+</div>
+
+
+    <div>Transformer &ldquo;Attention is all you need&rdquo; is a paper published on NIPS2017, conducted by 8 excellent machine learning scientists when they were in Google Brain. It proposed a network architecture, the Transformer, based solely on attention mechanisms, dispensing recurrence and convolutions entirely. It was originally used on translation tasks and achieved SOTA performance. However, it has been later applied in all different tasks in not only NLP but CV as well.</div>
+
+
+
+<div class="read_more">
+    <a href="/blog/transformer/">Read More…</a>
+</div>
+
+
+
+    
+</p>
+
+
+
+<p>
+    
+    
+
+<h3>
+    <a class="title" href="/blog/math_md/">Math in LaTeX</a>
+</h3>
+
+<div class="reading_time secondary_font text-muted ">
+    <span>
+        Nov 28 2021 · 16 min read
+    </span>
+
+</div>
+
+
+
+
+<div class="tags_navigation">
+    
+    <a class="tag" href="/tags/latex/">#latex</a>
+    
+</div>
+
+
+    <div>行内与独行  行内公式：将公式插入到本行内，符号：$公式内容$，如：$xyz$ 独行公式：将公式插入到新的一行内，并且居中，符号：$$公式内容$$，如：$$xyz$$  上标、下标与组合  上标符号，符号：^，如：$x^4$ 下标符号，符号：_，如：$x_1$ 组合符号，符号：{}，如：${16}{8}O{2+}{2}$  汉字、字体与格式  汉字形式，符号：\mbox{}，如：$V_{\mbox{初始}}$ 字体控制，符号：\displaystyle，如：$\displaystyle \frac{x+y}{y+z}$ 下划线符号，符号：\underline，如：$\underline{x+y}$ 标签，符号\tag{数字}，如：$\tag{11}$ 上大括号，符号：\overbrace{算式}，如：$\overbrace{a+b+c+d}^{2.0}$ 下大括号，符号：\underbrace{算式}，如：$a+\underbrace{b+c}_{1.0}+d$ 上位符号，符号：\stacrel{上位符号}{基位符号}， …</div>
+
+
+
+
+    
+</p>
+
+
+
+<p>
+    
+    
+
+<h3>
+    <a class="title" href="/blog/foundation_of_rl/">Foundation of RL</a>
+</h3>
+
+<div class="reading_time secondary_font text-muted ">
+    <span>
+        Aug 25 2021 · 8 min read
+    </span>
+
+</div>
+
+
+
+
+<div class="tags_navigation">
+    
+    <a class="tag" href="/tags/rl/">#rl</a>
+    
+</div>
+
+
+    <div>Table of Contents    Foundation of RL    1. Markov Decision Process, MDP 2. Dynamic Process, DP 3. Monte Carlo Methods, MC 4. Temporal Difference, TD         Foundation of RL This blog will briefly introduce Markov decision process (MDP), dynamic process (DP), Monte Carlo methods (MC), temporal difference (TD).
+1. Markov Decision Process, MDP A MDP is defined by:</div>
+
+
+
+<div class="read_more">
+    <a href="/blog/foundation_of_rl/">Read More…</a>
+</div>
+
+
+
+    
+</p>
+
+
+
+<p>
+    
+    
+
+<h3>
+    <a class="title" href="/blog/win11_explorer/">Right click in File Explorer of Win11</a>
 </h3>
 
 <div class="reading_time secondary_font text-muted ">
@@ -187,7 +393,7 @@ When wantting to change back to win11&rsquo;s simplified mode, run cmd as admini
 
 <div class="reading_time secondary_font text-muted ">
     <span>
-        May 10 2021 · 1 min read
+        Sep 1 2018 · 1 min read
     </span>
 
 </div>

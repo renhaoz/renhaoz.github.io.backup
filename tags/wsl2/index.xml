@@ -6,17 +6,42 @@
     <description>Recent content in wsl2 on renhaoz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://renhaoz.github.io/tags/wsl2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Config of Jupyter Lab on WSL2</title>
+      <link>https://renhaoz.github.io/blog/jupyter_config/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/jupyter_config/</guid>
+      <description>Install JupyterLab Run conda install -c conda-forge jupyterlab
+Config Browser of WSL2 Find browser&amp;rsquo;s path, my Chrome&amp;rsquo;s path is /mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe.
+Create a quick link sudo ln -s /mnt/c/Program\ Files/Google/Chrome/Application/chrome.exe /usr/bin/chrome.
+(Try if this work chrome www.youtube.com)
+Run gedit /.~bashrc, and add browser to its last line export BROWSER=&#39;/usr/bin/chrome&#39;
+Edit Jupyter Config File Generate jupyter config file jupyter notebook --generate-config
+Open it gedit ~/.jupyter/jupyter_notebook_config.py, find c.NotebookApp.use_redirect_file and set it to False.</description>
+    </item>
+    
+    <item>
+      <title>WSL2 on Win11</title>
+      <link>https://renhaoz.github.io/blog/wsl2/</link>
+      <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://renhaoz.github.io/blog/wsl2/</guid>
+      <description>Since many insteresting projects&amp;rsquo; environment only support Linux and many homeworks of computer science courses can only work on Linux, it is necessary for us to have one. But most laptop&amp;rsquo;s OS is Windows, so the optional of having a Linux OS are follow: Dual System; Virtual Machine.
+Installing a dual system is complicated, and it&amp;rsquo;s trouvlesome to frequently reboot when you want to use softwares installed on Windows and coding on Linus at same time.</description>
+    </item>
+    
+    <item>
       <title>Install MMdetection with docker on WSL2</title>
-      <link>https://renhaoz.github.io/blog/blog3/</link>
+      <link>https://renhaoz.github.io/blog/docker_mmdet/</link>
       <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://renhaoz.github.io/blog/blog3/</guid>
+      <guid>https://renhaoz.github.io/blog/docker_mmdet/</guid>
       <description>Installation of some projects can be really hard in China due to the Internet problem, so this blog records how to install mmdetedtion with dockerfile on WSL2.
 This blog at least work on my laptop: Win11 + WSL2 + NVIDIA-RTX-3070
  Table of Contents    1. Download MMdetection 2. Modification to Dockerfile 3. Basic Docker commond  3.0 Install docker 3.1 Status 3.2 Remove 3.3 Use       1.</description>

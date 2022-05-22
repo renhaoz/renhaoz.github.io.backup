@@ -4,7 +4,32 @@
   
   <url>
     <loc>https://renhaoz.github.io/blog/</loc>
-    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/jupyter_config/</loc>
+    <lastmod>2022-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/tags/jupyter/</loc>
+    <lastmod>2022-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/tags/</loc>
+    <lastmod>2022-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/tags/wsl2/</loc>
+    <lastmod>2022-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/wsl2/</loc>
+    <lastmod>2022-05-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -13,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://renhaoz.github.io/blog/blog3/</loc>
+    <loc>https://renhaoz.github.io/blog/docker_mmdet/</loc>
     <lastmod>2022-05-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -23,17 +48,7 @@
   </url>
   
   <url>
-    <loc>https://renhaoz.github.io/tags/</loc>
-    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://renhaoz.github.io/tags/wsl2/</loc>
-    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://renhaoz.github.io/blog/blog1/</loc>
+    <loc>https://renhaoz.github.io/blog/hugo_blog/</loc>
     <lastmod>2022-05-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -43,18 +58,48 @@
   </url>
   
   <url>
-    <loc>https://renhaoz.github.io/blog/blog4/</loc>
+    <loc>https://renhaoz.github.io/tags/attention/</loc>
+    <lastmod>2021-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/tags/nlp/</loc>
+    <lastmod>2021-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/transformer/</loc>
+    <lastmod>2021-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/tags/latex/</loc>
+    <lastmod>2021-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/math_md/</loc>
+    <lastmod>2021-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/foundation_of_rl/</loc>
+    <lastmod>2021-08-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/tags/rl/</loc>
+    <lastmod>2021-08-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/win11_explorer/</loc>
     <lastmod>2021-05-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://renhaoz.github.io/tags/win11/</loc>
     <lastmod>2021-05-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://renhaoz.github.io/blog/blog2/</loc>
-    <lastmod>2021-05-10T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -70,6 +115,11 @@
   <url>
     <loc>https://renhaoz.github.io/</loc>
     <lastmod>2020-10-20T17:51:47+03:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://renhaoz.github.io/blog/blog2/</loc>
+    <lastmod>2018-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
