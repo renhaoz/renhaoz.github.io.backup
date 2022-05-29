@@ -136,80 +136,82 @@ $$</p>
 <h5 id="21-policy-iteration">2.1 Policy Iteration</h5>
 <p>Policy iteration includes two phases, namely policy evaluation and policy improvement.</p>
 <p><strong>Policy evaluation</strong> has to find out the current state-value which is hard to directly solve the Bellman equation, so we use calculate its numerical solution:</p>
-<blockquote>
-<p>Start with $V_0(s)=0$ for all $s$</p>
-<p>For each $s \in S$</p>
-<p>​	$k=1$</p>
-<p>​	Repeat:</p>
-<p>​		$V^\pi_k(s) \leftarrow \sum_a \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi_{k-1}(s&rsquo;)]$</p>
-<p>​		$k=k+1$</p>
-<p>​	until $|V^\pi_k(s)-V^\pi_{k-1}(s)| &lt; \epsilon$</p>
-<p>Output $V^\pi$</p>
-</blockquote>
+<ul>
+<li>Start with $V_0(s)=0$ for all $s$</li>
+<li>For each $s \in S$</li>
+<li>​	$k=1$</li>
+<li>​	Repeat:</li>
+<li>​		$V^\pi_k(s) \leftarrow \sum_a \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi_{k-1}(s&rsquo;)]$</li>
+<li>​		$k=k+1$</li>
+<li>​	until $|V^\pi_k(s)-V^\pi_{k-1}(s)| &lt; \epsilon$</li>
+<li>Output $V^\pi$</li>
+</ul>
 <p>After getting the state-value of all states we shall optimize the current policy until achieving the optimal policy by choosing the action that can go to the state which has the maximal state-value, which is the <strong>policy improvement</strong> phase:</p>
-<blockquote>
-<p>Start with a random policy $\pi$</p>
-<p>For each $s \in S$</p>
-<p>​	$\pi(s) \leftarrow \underset{a}{argmax} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi(s&rsquo;)]$</p>
-</blockquote>
+<ul>
+<li>Start with a random policy $\pi$</li>
+<li>For each $s \in S$</li>
+<li>​	$\pi(s) \leftarrow \underset{a}{argmax} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi(s&rsquo;)]$</li>
+</ul>
 <p>Therefore, we can get the policy iteration:</p>
-<blockquote>
-<p>Start with $V_0(s)=0$ for all $s$</p>
-<p>Repeat:</p>
-<p>​	For each $s \in S$</p>
-<p>​		$k=1$</p>
-<p>​		Repeat:</p>
-<p>​			$V^\pi_k(s) \leftarrow \sum_a \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi_{k-1}(s&rsquo;)]$</p>
-<p>​			$k=k+1$</p>
-<p>​		until $|V^\pi_k(s)-V^\pi_{k-1}(s)| &lt; \epsilon$</p>
-<p>​		$\pi_k(s) \leftarrow \underset{a}{argmax} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi(s&rsquo;)]$</p>
-<p>until $\pi_k=\pi_{k-1}$</p>
-<p>Output $\pi^*$</p>
-</blockquote>
+<ul>
+<li>Start with $V_0(s)=0$ for all $s$</li>
+<li>Repeat:</li>
+<li>​	For each $s \in S$</li>
+<li>​		$k=1$</li>
+<li>​		Repeat:</li>
+<li>​			$V^\pi_k(s) \leftarrow \sum_a \pi(a|s) \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi_{k-1}(s&rsquo;)]$</li>
+<li>​			$k=k+1$</li>
+<li>​		until $|V^\pi_k(s)-V^\pi_{k-1}(s)| &lt; \epsilon$</li>
+<li>​		$\pi_k(s) \leftarrow \underset{a}{argmax} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^\pi(s&rsquo;)]$
+*</li>
+<li>until $\pi_k=\pi_{k-1}$
+*</li>
+<li>Output $\pi^*$</li>
+</ul>
 <p>Policy iteration requires a lot of time to achieve the optimal policy as it have to calculate state-value every time when updating policies. So we have the value iteration.</p>
 <h5 id="22-value-iteration">2.2 Value Iteration</h5>
 <p>We can combine the policy evaluation and policy improvement together to get value iteration, by:</p>
-<blockquote>
-<p>Start with $V_0(s)=0$ for all $s$</p>
-<p>$k=1$</p>
-<p>Repeat:</p>
-<p>​	For each $s \in S$</p>
-<p>​		$V^*_k(s) \leftarrow \underset{a}{max} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^*_{k-1}(s&rsquo;)]$</p>
-<p>​		$\pi^*_k(s) \leftarrow \underset{a}{argmax} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^*_{k-1}(s&rsquo;)]$</p>
-<p>​		$k=k+1$</p>
-<p>until $|V^*_k-V^*_{k-1}| &lt; \epsilon$ and $\pi^*_k=\pi^*_{k-1}$</p>
-<p>Output $\pi^*$</p>
-</blockquote>
+<ul>
+<li>Start with $V_0(s)=0$ for all $s$</li>
+<li>$k=1$</li>
+<li>Repeat:</li>
+<li>​	For each $s \in S$</li>
+<li>​		$V^*_k(s) \leftarrow \underset{a}{max} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^*_{k-1}(s&rsquo;)]$</li>
+<li>​		$\pi^*_k(s) \leftarrow \underset{a}{argmax} \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma V^*_{k-1}(s&rsquo;)]$</li>
+<li>​		$k=k+1$</li>
+<li>until $|V^*_k-V^*_{k-1}| &lt; \epsilon$ and $\pi^*_k=\pi^*_{k-1}$</li>
+<li>Output $\pi^*$</li>
+</ul>
 <p>Similarly, we can also get the Q-value iteration:</p>
-<blockquote>
-<p>Start with $Q_0(s,a)=0$ for all $(s,a)$</p>
-<p>$k=1$</p>
-<p>Repeat:</p>
-<p>​	For each $s \in S$, $a \in A$</p>
-<p>​		$Q^*_k(s,a) \leftarrow  \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma , \underset{a&rsquo;}{max} , Q^*_{k-1}(s&rsquo;,a&rsquo;)]$</p>
-<p>​		$\pi^*_k(s) \leftarrow \underset{a}{argmax} , Q^*_k(s,a)$</p>
-<p>​		$k=k+1$</p>
-<p>​	until $|Q^*_k-Q^*_{k-1}| &lt; \epsilon$ and $\pi^*_k=\pi^*_{k-1}$</p>
-<p>Output $\pi^*$</p>
-</blockquote>
+<ul>
+<li>Start with $Q_0(s,a)=0$ for all $(s,a)$</li>
+<li>$k=1$</li>
+<li>Repeat:</li>
+<li>​	For each $s \in S$, $a \in A$</li>
+<li>​		$Q^*_k(s,a) \leftarrow  \sum_{s&rsquo;,r} p(s&rsquo;,r|s,a)[r+\gamma , \underset{a&rsquo;}{max} , Q^*_{k-1}(s&rsquo;,a&rsquo;)]$</li>
+<li>​		$\pi^*_k(s) \leftarrow \underset{a}{argmax} , Q^*_k(s,a)$</li>
+<li>​		$k=k+1$</li>
+<li>​	until $|Q^*_k-Q^*_{k-1}| &lt; \epsilon$ and $\pi^*_k=\pi^*_{k-1}$</li>
+<li>Output $\pi^*$</li>
+</ul>
 <p>At each epoch $t$, in state-value iteration, we have to look for a step forward to compare $v(s_{t+1})$ to make decision, while in action-value iteration, we can make the decision directly by comparing $q(s_t,a_t)$.</p>
 <p>Although DP algorithm can find the accurate optimal policy, it have difficulty solving problem with large state space and large action space, not mention the continuous state or action space. And it has to calculate state-value for all states to find the optimal policy which is too time- consuming. Besides, it also requires the transition function of the environment which is very hard in some situations. *</p>
 <p>* <strong>Model-free and Model-based</strong>: when applying a specific algorithm to solve MDP, if it doesn&rsquo;t need the transition function of the environment, it is called <strong>model-free</strong> method. On the other hand, if acquiring the transition function is necessary, it is called <strong>model-based</strong> method.</p>
 <h3 id="3-monte-carlo-methods-mc">3. Monte Carlo Methods, MC</h3>
 <p>DP gets the state-value by solving Bellman equation, which calls for lots of computing power. If we look closer, we would find that to get the state-value $v_\pi(s)=\Bbb{E}_\pi(G(s))$ which is the expectation of $G(s)$, we can use sample to calculate the average value to represent the approximate solution, $\Bbb{E}_\pi(G(s))=\underset{n\rightarrow \infty}{lim}\frac{G_1(s)+G_2(s)+ \cdots +G_n(s)}{n}$, where $G_i(s)$ can be collected by multiple experiments which is **MC control**. The MC model doesn&rsquo;t need the transition function of the environment making it a **model-free** method. However, it needs a  whole episode before updating.</p>
 <p>Since we may not be able to access every states at the beginning of a environment, the on-policy first-visit MC control is given as below:  *</p>
-<blockquote>
-<p>Initialize for all $s \in S$, $a \in A$: $Q(s,a) \leftarrow 0$, $Return(s,a) \leftarrow 0$</p>
-<p>Repeat forever:</p>
-<p>​	Generate an episode using $\pi$</p>
-<p>​	<strong>Update action-value:</strong></p>
-<p>​	For each pair (s,a) appearing in the episode:</p>
-<p>​		Append the return that follows the first occurrence of (s,a) to $Return(s,a)$</p>
-<p>​		$Q(s,a) \leftarrow average(Return(s,a))$</p>
-<p>​	<strong>Update policy:</strong></p>
-<p>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</p>
-<p>​	$\pi(s) \leftarrow \left{ \begin{aligned} &amp;1-\epsilon+\frac{\epsilon}{|A(s)|} &amp; if ,a=a^* \ &amp;\frac{\epsilon}{|A(s)|} &amp; if , a \neq a^*  \end{aligned} \right.$</p>
-</blockquote>
+<ul>
+<li>Initialize for all $s \in S$, $a \in A$: $Q(s,a) \leftarrow 0$, $Return(s,a) \leftarrow 0$</li>
+<li>Repeat forever:</li>
+<li>​	Generate an episode using $\pi$</li>
+<li>​	<strong>Update action-value:</strong></li>
+<li>​	For each pair (s,a) appearing in the episode:</li>
+<li>​		Append the return that follows the first occurrence of (s,a) to $Return(s,a)$</li>
+<li>​		$Q(s,a) \leftarrow average(Return(s,a))$</li>
+<li>​	<strong>Update policy:</strong></li>
+<li>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</li>
+<li>​	$\pi(s) \leftarrow 1-\epsilon+\frac{\epsilon}{|A(s)|} if a=a^* , \frac{\epsilon}{|A(s)|} if  a \neq a^* $</li>
+</ul>
 <p>where $\epsilon$ is the probability of applying the random policy, which is  called $\epsilon-greedy$ policy. Since the policy updating phase is being done when the action-value is not exact, the action is not the optimal. So by adding a $\epsilon-soft$ policy, the agent can explore some other action randomly, which will help to get a more accurate action-value.</p>
 <p>* <strong>On-policy and Off-policy</strong>: all learning control methods face a dilemma, which is that they seek to learn action-values to find an optimal action but they have to behave non-optimal to find all action-values, in other words, how can they learn optimal action while behaving explorative. <strong>On-policy</strong> methods use the same policy to make decisions and to be evaluated or improved. It made a compromise: it learns a policy near-optimal instead of optimal to maintain some exploration like the $\epsilon - greedy$ policy. <strong>Off-policy</strong> methods use different policies to make decisions and to be evaluated or improved. The one that has been learned is called <strong>target-policy</strong>, and the one that has been used to make decision is called <strong>behavior-policy</strong>. Therefore off-policy methods can learn for the optimal policy while maintaining exploration. This section only introduces the on-policy MC control, off-policy MC control is omitted.</p>
 <h3 id="4-temporal-difference-td">4. Temporal Difference, TD</h3>
@@ -236,18 +238,18 @@ $$
 Q(S_t,A_t) \leftarrow Q(S_t,A_t)+\alpha[R_{t+1}+\gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)]
 $$
 This equation means that action-value can be updated at every epoch with (s,a,r,s&rsquo;,a&rsquo;), so the algorithm is called **Sarsa**:</p>
-<blockquote>
-<p>Initialize for all $s \in S$, $a \in A$: $Q(s,a) \leftarrow 0$</p>
-<p>Repeat:</p>
-<p>​	Agent makes action $a=\pi(s)$ based on the state $s$ it observe</p>
-<p>​	Agent gets reward $r$ and next state $s'$</p>
-<p>​	Agent makes action $a'=\pi(s&rsquo;)$ based on the state $s'$ it observe</p>
-<p>​	<strong>Update action-value</strong>:</p>
-<p>​	$Q(s,a) \leftarrow Q(s,a)+\alpha[r+\gamma Q(s&rsquo;,a&rsquo;)-Q(s,a)]$</p>
-<p>​	<strong>Update policy</strong>:</p>
-<p>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</p>
-<p>​	update $\pi(s)$ with $\epsilon-greedy$ policy</p>
-</blockquote>
+<ul>
+<li>Initialize for all $s \in S$, $a \in A$: $Q(s,a) \leftarrow 0$</li>
+<li>Repeat:</li>
+<li>​	Agent makes action $a=\pi(s)$ based on the state $s$ it observe</li>
+<li>​	Agent gets reward $r$ and next state $s'$</li>
+<li>​	Agent makes action $a'=\pi(s&rsquo;)$ based on the state $s'$ it observe</li>
+<li>​	<strong>Update action-value</strong>:</li>
+<li>​	$Q(s,a) \leftarrow Q(s,a)+\alpha[r+\gamma Q(s&rsquo;,a&rsquo;)-Q(s,a)]$</li>
+<li>​	<strong>Update policy</strong>:</li>
+<li>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</li>
+<li>​	update $\pi(s)$ with $\epsilon-greedy$ policy</li>
+</ul>
 <h5 id="43-q-learning">4.3 Q-learning</h5>
 <p>Q-learning enables the agent to learn action-value directly to optimal action-value, independent of the policy followed as Sarsa.</p>
 <p>The off-policy TD control also called Q-learning is defined as below:
@@ -255,17 +257,17 @@ $$
 Q(S_t,A_t) \leftarrow Q(S_t,A_t)+\alpha[R_{t+1}+\gamma , \underset{a}{max} , Q(S_{t+1},a)-Q(S_t,A_t)]
 $$
 Then the algorithm is defined as below:</p>
-<blockquote>
-<p>Initialize for all $s \in S$, $a \in A$: $Q(s,a) \leftarrow 0$</p>
-<p>Repeat:</p>
-<p>​	Agent makes action $a=\pi(s)$ based on the state $s$ it observe</p>
-<p>​	Agent gets reward $r$ and next state $s'$</p>
-<p>​	<strong>Update action-value</strong>:</p>
-<p>​	$Q(s,a) \leftarrow Q(s,a)+\alpha[r+\gamma , \underset{a}{max} ,  Q(s&rsquo;,a)-Q(s,a)]$</p>
-<p>​	<strong>Update policy</strong>:</p>
-<p>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</p>
-<p>​	update $\pi(s)$ with $\epsilon-greedy$ policy</p>
-</blockquote>
+<ul>
+<li>Initialize for all $s \in S$, $a \in A$: $Q(s,a) \leftarrow 0$</li>
+<li>Repeat:</li>
+<li>​	Agent makes action $a=\pi(s)$ based on the state $s$ it observe</li>
+<li>​	Agent gets reward $r$ and next state $s'$</li>
+<li>​	<strong>Update action-value</strong>:</li>
+<li>​	$Q(s,a) \leftarrow Q(s,a)+\alpha[r+\gamma , \underset{a}{max} ,  Q(s&rsquo;,a)-Q(s,a)]$</li>
+<li>​	<strong>Update policy</strong>:</li>
+<li>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</li>
+<li>​	update $\pi(s)$ with $\epsilon-greedy$ policy</li>
+</ul>
 <p>Q-learning still cannot solve the problem with large state and action spaces.</p>
 <p>Q-learning is proposed in 1989, although it has a lot of improvement thereafter, but reinforcement learning algorithms stays relatively still until the breakthrough of DQN introduced in 2015 which will be introduced in next blog. By combining deep learning with reinforcement learning, DRL has greatly influenced the later works.</p>
 
