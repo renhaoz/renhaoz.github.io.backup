@@ -77,6 +77,40 @@ if (!doNotTrack) {
 <p>Therefore, WSL is a compromise, which takes up less memory and makes better use of hardware resources than virtual machine, and can use the sofrware installed on Windows at the same time which is out of the capacity of dual system.</p>
 <p>This blog berifly introduces how to install wsl2 and config it to run deep learning programs.</p>
 <p>The following as least works on my laptop (ASUS TUF Gaming F15, Win11, intel i7-12700H, NVIDIA RTX 3070).</p>
+<div class="toc ">
+    <div>
+        <strong>Table of Contents</strong>
+    </div>
+    <div>
+        
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#install-wsl2">Install WSL2</a></li>
+    <li><a href="#enable-gui-of-wsl2">Enable GUI of WSL2</a></li>
+    <li><a href="#config-of-gpu">Config of GPU</a>
+      <ul>
+        <li><a href="#install-nvidia-driver">Install NVIDIA Driver</a></li>
+        <li><a href="#install-cuda">Install CUDA</a></li>
+        <li><a href="#install-cudnn">Install CUDNN</a></li>
+      </ul>
+    </li>
+    <li><a href="#anaconda">Anaconda</a></li>
+    <li><a href="#optional-china">(Optional) China</a>
+      <ul>
+        <li><a href="#vpn">VPN</a></li>
+        <li><a href="#mirror">Mirror</a>
+          <ul>
+            <li><a href="#apt">Apt</a></li>
+            <li><a href="#pip">Pip</a></li>
+            <li><a href="#conda">Conda</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
 <h1 id="install-wsl2">Install WSL2</h1>
 <p>It is recommonded to install <code>Windows Terminal</code> in Microsoft Store, open it, then run <code>wsl --install</code>. It will install <code>Ubuntu20.04</code> by default.</p>
 <h1 id="enable-gui-of-wsl2">Enable GUI of WSL2</h1>

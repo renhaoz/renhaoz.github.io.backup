@@ -80,25 +80,27 @@ if (!doNotTrack) {
         
         <nav id="TableOfContents">
   <ul>
-    <li><a href="#foundation-of-rl">Foundation of RL</a>
+    <li><a href="#1-markov-decision-process-mdp">1. Markov Decision Process, MDP</a></li>
+    <li><a href="#2-dynamic-process-dp">2. Dynamic Process, DP</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#1-markov-decision-process-mdp">1. Markov Decision Process, MDP</a></li>
-            <li><a href="#2-dynamic-process-dp">2. Dynamic Process, DP</a></li>
-            <li><a href="#3-monte-carlo-methods-mc">3. Monte Carlo Methods, MC</a></li>
-            <li><a href="#4-temporal-difference-td">4. Temporal Difference, TD</a></li>
-          </ul>
-        </li>
+        <li><a href="#21-policy-iteration">2.1 Policy Iteration</a></li>
+        <li><a href="#22-value-iteration">2.2 Value Iteration</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-monte-carlo-methods-mc">3. Monte Carlo Methods, MC</a></li>
+    <li><a href="#4-temporal-difference-td">4. Temporal Difference, TD</a>
+      <ul>
+        <li><a href="#41-td-prediction">4.1 TD Prediction</a></li>
+        <li><a href="#42-sarsa">4.2 Sarsa</a></li>
+        <li><a href="#43-q-learning">4.3 Q-learning</a></li>
       </ul>
     </li>
   </ul>
 </nav>
     </div>
 </div>
-<h1 id="foundation-of-rl">Foundation of RL</h1>
 <p>This blog will briefly introduce Markov decision process (MDP), dynamic process (DP), Monte Carlo methods (MC), temporal difference (TD).</p>
-<h3 id="1-markov-decision-process-mdp">1. Markov Decision Process, MDP</h3>
+<h1 id="1-markov-decision-process-mdp">1. Markov Decision Process, MDP</h1>
 <p>A MDP is defined by:</p>
 <ul>
 <li>Set of states, $S$</li>
@@ -131,9 +133,9 @@ q_*(s)=\underset{\pi}{max} , q_\pi(s,a)=\sum_{s&rsquo;,r}p(s&rsquo;,r|s,a)[r+\ga
 $$</p>
 <p>So we have to find optimal policy for the agent with different algorithms.</p>
 <p>* <strong>Maximum Entropy Formulation</strong>: Practically, sometime we don&rsquo;t want the policy to output one best action because the environment may change. Instead, we want to find the distribution over near-optimal solutions, which would introduce a concept of <strong>Maximum Entropy Formulation</strong>. Instead of maximizing $\Bbb{E}[G_t]$, we maximize $\Bbb{E}[G_t+\beta \cal{H}(\pi(\cdot|s_t))]$, where $\cal{H}(\cdot)$ is the entropy. If the policy is deterministic, the entropy is 0. So this approach will help the policy to output a distribution.</p>
-<h3 id="2-dynamic-process-dp">2. Dynamic Process, DP</h3>
+<h1 id="2-dynamic-process-dp">2. Dynamic Process, DP</h1>
 <p>DP algorithm can be used to find the optimal policy and it can be achieved by <strong>value iteration</strong> or <strong>policy iteration</strong>.</p>
-<h5 id="21-policy-iteration">2.1 Policy Iteration</h5>
+<h2 id="21-policy-iteration">2.1 Policy Iteration</h2>
 <p>Policy iteration includes two phases, namely policy evaluation and policy improvement.</p>
 <p><strong>Policy evaluation</strong> has to find out the current state-value which is hard to directly solve the Bellman equation, so we use calculate its numerical solution:</p>
 <ul>
@@ -169,7 +171,7 @@ $$</p>
 <li>Output $\pi^*$</li>
 </ul>
 <p>Policy iteration requires a lot of time to achieve the optimal policy as it have to calculate state-value every time when updating policies. So we have the value iteration.</p>
-<h5 id="22-value-iteration">2.2 Value Iteration</h5>
+<h2 id="22-value-iteration">2.2 Value Iteration</h2>
 <p>We can combine the policy evaluation and policy improvement together to get value iteration, by:</p>
 <ul>
 <li>Start with $V_0(s)=0$ for all $s$</li>
@@ -197,7 +199,7 @@ $$</p>
 <p>At each epoch $t$, in state-value iteration, we have to look for a step forward to compare $v(s_{t+1})$ to make decision, while in action-value iteration, we can make the decision directly by comparing $q(s_t,a_t)$.</p>
 <p>Although DP algorithm can find the accurate optimal policy, it have difficulty solving problem with large state space and large action space, not mention the continuous state or action space. And it has to calculate state-value for all states to find the optimal policy which is too time- consuming. Besides, it also requires the transition function of the environment which is very hard in some situations. *</p>
 <p>* <strong>Model-free and Model-based</strong>: when applying a specific algorithm to solve MDP, if it doesn&rsquo;t need the transition function of the environment, it is called <strong>model-free</strong> method. On the other hand, if acquiring the transition function is necessary, it is called <strong>model-based</strong> method.</p>
-<h3 id="3-monte-carlo-methods-mc">3. Monte Carlo Methods, MC</h3>
+<h1 id="3-monte-carlo-methods-mc">3. Monte Carlo Methods, MC</h1>
 <p>DP gets the state-value by solving Bellman equation, which calls for lots of computing power. If we look closer, we would find that to get the state-value $v_\pi(s)=\Bbb{E}_\pi(G(s))$ which is the expectation of $G(s)$, we can use sample to calculate the average value to represent the approximate solution, $\Bbb{E}_\pi(G(s))=\underset{n\rightarrow \infty}{lim}\frac{G_1(s)+G_2(s)+ \cdots +G_n(s)}{n}$, where $G_i(s)$ can be collected by multiple experiments which is **MC control**. The MC model doesn&rsquo;t need the transition function of the environment making it a **model-free** method. However, it needs a  whole episode before updating.</p>
 <p>Since we may not be able to access every states at the beginning of a environment, the on-policy first-visit MC control is given as below:  *</p>
 <ul>
@@ -214,10 +216,10 @@ $$</p>
 </ul>
 <p>where $\epsilon$ is the probability of applying the random policy, which is  called $\epsilon-greedy$ policy. Since the policy updating phase is being done when the action-value is not exact, the action is not the optimal. So by adding a $\epsilon-soft$ policy, the agent can explore some other action randomly, which will help to get a more accurate action-value.</p>
 <p>* <strong>On-policy and Off-policy</strong>: all learning control methods face a dilemma, which is that they seek to learn action-values to find an optimal action but they have to behave non-optimal to find all action-values, in other words, how can they learn optimal action while behaving explorative. <strong>On-policy</strong> methods use the same policy to make decisions and to be evaluated or improved. It made a compromise: it learns a policy near-optimal instead of optimal to maintain some exploration like the $\epsilon - greedy$ policy. <strong>Off-policy</strong> methods use different policies to make decisions and to be evaluated or improved. The one that has been learned is called <strong>target-policy</strong>, and the one that has been used to make decision is called <strong>behavior-policy</strong>. Therefore off-policy methods can learn for the optimal policy while maintaining exploration. This section only introduces the on-policy MC control, off-policy MC control is omitted.</p>
-<h3 id="4-temporal-difference-td">4. Temporal Difference, TD</h3>
+<h1 id="4-temporal-difference-td">4. Temporal Difference, TD</h1>
 <p>MC control needs a whole episode which is also time-consuming and in not suitable for infinite MDP. Therefore, in this section, we talk about <strong>TD learning</strong> which takes the advantages of both DP and MC, it is a <strong>model-free</strong> method which utilize experiences like MC and it can learn values from other values like DP making it don&rsquo;t need a whole episode. In other word, the TD learning enables the agent to update its policy without having to acquire the dynamic property of the environment and without having to bootstrap.</p>
 <p>This section will introduce the <strong>TD prediction</strong> and two algorithms, namely the on-policy TD control <strong>Sarsa</strong>, and the off-policy TD control <strong>Q-learning</strong>.</p>
-<h5 id="41-td-prediction">4.1 TD Prediction</h5>
+<h2 id="41-td-prediction">4.1 TD Prediction</h2>
 <p>MC control updates its state-value as:
 $$
 V(S_t) \leftarrow V(S_t)+\alpha[G_t-V(S_t)]
@@ -232,7 +234,7 @@ $$
 \delta_t=R_{t+1}+\gamma V(S_{t+1})-V(S_t)
 $$
 TD predicts the state-values by TD errors.</p>
-<h5 id="42-sarsa">4.2 Sarsa</h5>
+<h2 id="42-sarsa">4.2 Sarsa</h2>
 <p>Similar to predicting the state-values, action-values can also be predicted by TD error by:
 $$
 Q(S_t,A_t) \leftarrow Q(S_t,A_t)+\alpha[R_{t+1}+\gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)]
@@ -250,7 +252,7 @@ This equation means that action-value can be updated at every epoch with (s,a,r,
 <li>​	$a^* \leftarrow \underset{a}{argmax} , Q(s,a)$</li>
 <li>​	update $\pi(s)$ with $\epsilon-greedy$ policy</li>
 </ul>
-<h5 id="43-q-learning">4.3 Q-learning</h5>
+<h2 id="43-q-learning">4.3 Q-learning</h2>
 <p>Q-learning enables the agent to learn action-value directly to optimal action-value, independent of the policy followed as Sarsa.</p>
 <p>The off-policy TD control also called Q-learning is defined as below:
 $$
